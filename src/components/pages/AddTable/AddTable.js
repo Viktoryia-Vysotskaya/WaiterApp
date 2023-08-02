@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addTableRequest } from "../../../redux/tablesRedux";
 import { useState } from "react";
+import styles from './AddTable.module.scss';
+
 
 const AddTable = () => {
     const [status, setStatus] = useState("Free");
@@ -55,26 +57,12 @@ const AddTable = () => {
 
     return (
         <>
-            <h2>Add Table</h2>
-            <Form onSubmit={handleSubmit}>
+            <h2 className={styles['title']}> Add Table </h2>
+            <Form onSubmit={handleSubmit} className={styles['table-form']}>
 
-                <Form.Group as={Row} className="mb-3">
-                    <Form.Label as="legend" column sm={1}>
-                        <strong>Status:</strong>
-                    </Form.Label>
-                    <Col sm={3}>
-                        <Form.Select value={status} onChange={(e) => setStatus(e.target.value)}>
-                            <option value="Busy">Busy</option>
-                            <option value="Free">Free</option>
-                            <option value="Cleaning">Cleaning</option>
-                            <option value="Reserved">Reserved</option>
-                        </Form.Select>
-                    </Col>
-                </Form.Group>
-
-                <Form.Group as={Row} className="mb-3">
+                <Form.Group as={Row} className={`mb-3 ${styles['form-group']}`}>
                     <Form.Label column sm={2}>
-                        <strong>Table Number:</strong>
+                        <strong> Table Number: </strong>
                     </Form.Label>
                     <Col sm={2}>
                         <Form.Control
@@ -85,34 +73,51 @@ const AddTable = () => {
                                 const value = e.target.value.replace(/\D/g, "");
                                 setTableNumber(value);
                             }}
+                            className={styles['form-control-title']}
                         />
                     </Col>
                 </Form.Group>
 
-                <Form.Group as={Row} className="mb-3">
+                <Form.Group as={Row} className={`mb-3 ${styles['form-group']}`}>
+                    <Form.Label as="legend" column sm={1}>
+                        <strong>Status:</strong>
+                    </Form.Label>
+                    <Col sm={3}>
+                        <Form.Select value={status} onChange={(e) => setStatus(e.target.value)} className={styles['form-control-select']}>
+                            <option value="Busy"> Busy </option>
+                            <option value="Free"> Free </option>
+                            <option value="Cleaning"> Cleaning </option>
+                            <option value="Reserved"> Reserved </option>
+                        </Form.Select>
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row} className={`mb-3 ${styles['form-group']}`}>
                     <Form.Label column sm={1}>
-                        <strong>People:</strong>
+                        <strong> People: </strong>
                     </Form.Label>
                     <Col sm={1}>
                         <Form.Control
                             type="number"
                             value={peopleAmount}
                             onChange={handlePeopleAmountChange}
+                            className={styles['form-control-people-one']}
                         />
                     </Col>
-                    /
+                    <Col sm={1} className={styles['slash']}> / </Col>
                     <Col sm={1}>
                         <Form.Control
                             type="number"
                             value={maxPeopleAmount}
                             onChange={handleMaxPeopleAmountChange}
+                            className={styles['form-control-people-two']}
                         />
                     </Col>
                 </Form.Group>
 
-                <Form.Group as={Row} className="mb-2">
+                <Form.Group as={Row} className={`mb-3 ${styles['form-group']}`}>
                     <Col>
-                        <Button type="submit" variant="primary">
+                        <Button type="submit" variant="primary" className={styles['submit-button']}>
                             Add
                         </Button>
                     </Col>

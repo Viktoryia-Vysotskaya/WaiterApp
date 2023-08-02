@@ -1,0 +1,14 @@
+@import '../../../styles/settings.scss';
+
+.footer-container {
+    color: $color-four;
+    text-align: right;
+    padding-right: 40px;
+    padding-top: 20px;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-weight: 600;
+}
