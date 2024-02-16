@@ -3,7 +3,7 @@
 ➱ React App Application
 
 
-💻 Live demo: https://waiterapp--viktoryiavysots.repl.co
+💻 Live demo: https://694b118c-75be-46fd-879d-05846b757d40-00-2g2nx6kpbuqfn.picard.replit.dev
 
 (!) Free hosting so might take a while to load for first time.
 
